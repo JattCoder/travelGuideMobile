@@ -2,10 +2,14 @@ import React,{ useState } from 'react'
 import { View, Text, StyleSheet, Dimensions } from 'react-native'
 import Header from './Components/header'
 import Welcome from './Components/welcome'
+import Inputs from './Components/Inputs/inputs'
+import Api from './Components/API/api'
 
 export default Login = () => {
 
     const [currentPage,setCurrentPage] = useState('Login')
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
 
     return(
         <View style={Styles.frame}>
@@ -15,7 +19,12 @@ export default Login = () => {
                     <View style={{position:'absolute',bottom:0}}><Welcome /></View>
                 </View>
             </View>
-            
+            <View style={{width:'83%',height:'55%',position:'absolute',bottom:0}}>
+                <Inputs setEmail={setEmail} setPassword={setPassword}/>
+            </View>
+            <View style={{width:'83%',height:'37%',position:'absolute',bottom:0}}>
+                <Api />
+            </View>
         </View>
     )
 }
