@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useState, useEffect } from 'react'
 import { View, StyleSheet, Dimensions } from 'react-native'
 import Header from './Components/header'
 import Welcome from './Components/welcome'
@@ -12,6 +12,15 @@ export default Login = () => {
     const [api,setApi] = useState('JS')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+
+    loginAttempt = () => {
+        if(email || password == '') console.warn('Something is empty')
+        else console.warn('Email: '+email+'\nPassword: '+password)
+    }
+
+    registerAttempt = () => {
+        console.warn('Register')
+    }
 
     return(
         <View style={Styles.frame}>
@@ -28,7 +37,7 @@ export default Login = () => {
                 <Api setApi={setApi} api={api}/>
             </View>
             <View style={{width:'100%',height:'13%',position:'absolute',bottom:0}}>
-                <Bottom />
+                <Bottom attempt={currentPage == 'Login' ? () => loginAttempt() : () => registerAttempt()}/>
             </View>
         </View>
     )
