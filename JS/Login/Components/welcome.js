@@ -16,8 +16,8 @@ export default Welcome = () => {
                 useNativeDriver:false
             }),
             Animated.timing(frameOpacity,{
-                toValue:0,
-                duration:500,
+                toValue:1,
+                duration:800,
                 useNativeDriver:false
             }),
         ]).start(()=>Animated.timing(toOpacity,{

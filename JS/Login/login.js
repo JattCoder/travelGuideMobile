@@ -1,5 +1,5 @@
-import React,{ useState, useEffect } from 'react'
-import { View, StyleSheet, Dimensions } from 'react-native'
+import React,{ useState } from 'react'
+import { View, StyleSheet, Dimensions, Animated } from 'react-native'
 import Header from './Components/header'
 import Welcome from './Components/welcome'
 import Inputs from './Components/Inputs/inputs'
@@ -14,7 +14,7 @@ export default Login = () => {
     const [password,setPassword] = useState('')
 
     loginAttempt = () => {
-        if(email || password == '') console.warn('Something is empty')
+        if(email == '' || password == '') console.warn('Something is empty')
         else console.warn('Email: '+email+'\nPassword: '+password)
     }
 
@@ -25,17 +25,17 @@ export default Login = () => {
     return(
         <View style={Styles.frame}>
             <View style={Styles.header}><Header setPage={setCurrentPage}/></View>
-            <View style={{height:'83%',width:'100%',position:'absolute',bottom:0,alignItems:'center'}}>
+            <Animated.View style={{height:'83%',width:'100%',position:'absolute',bottom:0,alignItems:'center'}}>
                 <View style={{width:'85%',height:'15%'}}>
                     <View style={{position:'absolute',bottom:0}}><Welcome /></View>
                 </View>
-            </View>
-            <View style={{width:'83%',height:'55%',position:'absolute',bottom:0}}>
+            </Animated.View>
+            <Animated.View style={{width:'83%',height:'55%',position:'absolute',bottom:0}}>
                 <Inputs setEmail={setEmail} setPassword={setPassword}/>
-            </View>
-            <View style={{width:'83%',height:'37%',position:'absolute',bottom:0}}>
+            </Animated.View>
+            <Animated.View style={{width:'83%',height:'37%',position:'absolute',bottom:0}}>
                 <Api setApi={setApi} api={api}/>
-            </View>
+            </Animated.View>
             <View style={{width:'100%',height:'13%',position:'absolute',bottom:0}}>
                 <Bottom attempt={currentPage == 'Login' ? () => loginAttempt() : () => registerAttempt()}/>
             </View>
