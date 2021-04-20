@@ -4,6 +4,7 @@ import Header from './Components/header'
 import Welcome from './Components/welcome'
 import Inputs from './Components/Inputs/inputs'
 import Api from './Components/API/api'
+import Bottom from './Components/Bottom/bottom'
 
 export default Login = () => {
 
@@ -25,6 +26,9 @@ export default Login = () => {
             </View>
             <View style={{width:'83%',height:'37%',position:'absolute',bottom:0}}>
                 <Api setApi={setApi} api={api}/>
+            </View>
+            <View style={{width:'100%',height:'13%',position:'absolute',bottom:0}}>
+                <Bottom />
             </View>
         </View>
     )
