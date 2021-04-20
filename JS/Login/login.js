@@ -1,6 +1,6 @@
 import React,{ useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { View, StyleSheet, Dimensions, Animated } from 'react-native'
+import { View, StyleSheet, Dimensions, Animated, ActivityIndicator } from 'react-native'
 import Header from './Components/header'
 import Welcome from './Components/welcome'
 import Inputs from './Components/Inputs/inputs'
@@ -24,7 +24,7 @@ export default Login = () => {
 
     loginAttempt = () => {
         if(email == '' || password == '') console.warn('Check Email and Password')
-        else dispatch(login(email,password))
+        else dispatch(login(email,password,api))
     }
 
     registerAttempt = () => {
@@ -59,6 +59,10 @@ export default Login = () => {
     const registerHeightInterpolate = registerHeight.interpolate({
         inputRange:[0,1],
         outputRange:['0%','83%']
+    })
+
+    useSelector(state => {
+        console.warn(state)
     })
 
     return(
