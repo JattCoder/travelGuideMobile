@@ -45,7 +45,7 @@ export default Bottom = (props) => {
 
     return(
         <View style={{height:'100%',width:'100%'}}>
-            <Animated.View style={{opacity:forgotpasswordOpacity}}><Forgotpassword /></Animated.View>
+            <Animated.View style={{opacity:forgotpasswordOpacity}}><Forgotpassword selection={props.selection}/></Animated.View>
             <Animated.View style={{position:'absolute',bottom:bottombar,width:'100%',height:'75%',backgroundColor:'#C0C0C0'}}/>
             <Animated.View style={{position:'absolute',height:'100%',width:'35%',right:buttonRight,opacity:buttonOpacity}}>
                 <ActionButton attempt={props.attempt}/>
