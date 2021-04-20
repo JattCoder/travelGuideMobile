@@ -1,4 +1,4 @@
-import { LOGIN } from '../actions/login/login'
+import { LOGIN } from '../actions/Login/login'
 
 const reducer = (login = {}, action) => {
     switch(action.type){
