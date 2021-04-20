@@ -33,7 +33,7 @@ export default Password = (props) => {
 
     return(
         <Animated.View style={{width:'100%',height:'30%',opacity:passwordOpacity}}>
-            <TextInput onChangeText={(email)=>props.setPassword(email)} onFocus={()=>passwordAnimation('focus')} onBlur={()=>passwordAnimation('blur')}  placeholder={'Password'}  style={{height:'100%', width:'100%',paddingHorizontal:'1%',fontSize:15}}/>
+            <TextInput onChangeText={(email)=>props.setPassword(email)} secureTextEntry={true} onFocus={()=>passwordAnimation('focus')} onBlur={()=>passwordAnimation('blur')}  placeholder={'Password'}  style={{height:'100%', width:'100%',paddingHorizontal:'1%',fontSize:15}}/>
             <Animated.View style={{width:'100%',borderWidth:1,borderColor:passwordUnderlineInterpolate}}/>
         </Animated.View>
     )

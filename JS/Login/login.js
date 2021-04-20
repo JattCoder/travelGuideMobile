@@ -1,4 +1,5 @@
 import React,{ useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { View, StyleSheet, Dimensions, Animated } from 'react-native'
 import Header from './Components/header'
 import Welcome from './Components/welcome'
@@ -6,6 +7,7 @@ import Inputs from './Components/Inputs/inputs'
 import Api from './Components/API/api'
 import Register from '../Register/register'
 import Bottom from './Components/Bottom/bottom'
+import { login } from '../../actions/Login/login'
 
 export default Login = () => {
 
@@ -18,14 +20,15 @@ export default Login = () => {
     const [welcomeOpacity] = useState(new Animated.Value(1))
     const [inputOpacity] = useState(new Animated.Value(1))
     const [apiOpacity] = useState(new Animated.Value(1))
+    const dispatch = useDispatch()
 
     loginAttempt = () => {
-        if(email == '' || password == '') console.warn('Something is empty')
-        else console.warn('Email: '+email+'\nPassword: '+password)
+        if(email == '' || password == '') console.warn('Check Email and Password')
+        else dispatch(login(email,password))
     }
 
     registerAttempt = () => {
-        console.warn('Register')
+        console.warn('Lets Register')
     }
 
     if(currentPage){
@@ -73,7 +76,7 @@ export default Login = () => {
                 <Api setApi={setApi} api={api}/>
             </Animated.View>
             <Animated.View style={{width:'100%',height:registerHeightInterpolate,position:'absolute',bottom:0}}>
-                <Register selection={currentPage}/>
+                <Register selection={currentPage} regHeight={registerHeight}/>
             </Animated.View>
             <View style={{width:'100%',height:'13%',position:'absolute',bottom:0}}>
                 <Bottom attempt={currentPage == 'Login' ? () => loginAttempt() : () => registerAttempt()} selection={currentPage}/>

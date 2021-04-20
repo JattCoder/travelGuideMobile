@@ -33,7 +33,7 @@ export default Email = (props) => {
 
     return(
         <Animated.View style={{width:'100%',height:'30%',opacity:emailOpacity}}>
-            <TextInput onChangeText={(email)=>props.setEmail(email)} onFocus={()=>emailAnimation('focus')} onBlur={()=>emailAnimation('blur')} placeholder={'Email address'}  style={{height:'100%', width:'100%',paddingHorizontal:'1%',fontSize:15}}/>
+            <TextInput onChangeText={(email)=>props.setEmail(email)} autoCapitalize={'none'} onFocus={()=>emailAnimation('focus')} onBlur={()=>emailAnimation('blur')} placeholder={'Email address'}  style={{height:'100%', width:'100%',paddingHorizontal:'1%',fontSize:15}}/>
             <Animated.View style={{width:'100%',borderWidth:1,borderColor:emailUnderlineInterpolate}}/>
         </Animated.View>
     )
