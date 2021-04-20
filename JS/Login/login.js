@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
+import { View, StyleSheet, Dimensions } from 'react-native'
 import Header from './Components/header'
 import Welcome from './Components/welcome'
 import Inputs from './Components/Inputs/inputs'
@@ -8,6 +8,7 @@ import Api from './Components/API/api'
 export default Login = () => {
 
     const [currentPage,setCurrentPage] = useState('Login')
+    const [api,setApi] = useState('JS')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
 
@@ -23,7 +24,7 @@ export default Login = () => {
                 <Inputs setEmail={setEmail} setPassword={setPassword}/>
             </View>
             <View style={{width:'83%',height:'37%',position:'absolute',bottom:0}}>
-                <Api />
+                <Api setApi={setApi} api={api}/>
             </View>
         </View>
     )
