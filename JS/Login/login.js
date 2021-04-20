@@ -20,6 +20,7 @@ export default Login = () => {
     const [welcomeOpacity] = useState(new Animated.Value(1))
     const [inputOpacity] = useState(new Animated.Value(1))
     const [apiOpacity] = useState(new Animated.Value(1))
+    const [loginData,setLoginData] = useState({})
     const dispatch = useDispatch()
 
     loginAttempt = () => {
@@ -62,7 +63,10 @@ export default Login = () => {
     })
 
     useSelector(state => {
-        console.warn(state)
+        if(state.login != loginData) {
+            console.warn(state.login)
+            setLoginData(state.login)
+        }
     })
 
     return(
